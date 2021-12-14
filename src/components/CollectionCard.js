@@ -13,7 +13,7 @@ const CollectionCard = ({ id, name, traits, image }) => {
       </Details>
       <PriceContainer>
         <img src={weth} alt="" />
-        <Price>{traits[0]?.value}</Price>
+        <Price>{traits}</Price>
       </PriceContainer>
     </CollectionCardContainer>
   );
@@ -28,7 +28,7 @@ const CollectionCardContainer = styled.div`
   overflow: hidden;
   width: 300px;
   height: 500px;
-  marging-right: 30px;
+  margin: 20px;
 
   img {
     width: 100%;

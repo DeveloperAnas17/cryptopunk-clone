@@ -9,25 +9,40 @@ const CollectionCards = () => {
   useEffect(() => {
     const getMyNfts = async () => {
       const openseaData = await axios.get(
-        "https://testnets-api.opensea.io/assets?asset_contract_address=0x8511184501b8DD5FE0623c87B76fCd5A1DDBDC76order_direction=asc"
+        "https://testnets-api.opensea.io/assets?asset_contract_address=0x9CeD6a5701bc03361d20B6eeA37d7c078A3d42F1&order_direction=asc"
       );
       console.log(openseaData.data.assets);
+      setPunkListsData(openseaData.data.assets);
     };
     return getMyNfts();
   }, []);
 
   return (
     <CollectionCardsContainer>
-      <CollectionCard
-        id={0}
-        name={"Aman Punk"}
-        traits={[{ value: 9 }]}
-        image="https://ipfs.thirdweb.com/ipfs/bafkreif7axssjhjeqqsa4whbpcxbwccwrmi7ooe3fi47nioepivco57cry"
-      />
+      {punkListsdata.map((punkListData) => (
+        <CollectionCard
+          key={punkListData.id}
+          id={punkListData.id}
+          name={punkListData.name}
+          traits={punkListData.traits.value}
+          image={punkListData.image_url}
+        />
+      ))}
     </CollectionCardsContainer>
   );
 };
 
 export default CollectionCards;
 
-const CollectionCardsContainer = styled.div``;
+const CollectionCardsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid white;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
