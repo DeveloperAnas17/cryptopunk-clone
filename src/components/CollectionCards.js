@@ -5,6 +5,8 @@ import axios from "axios";
 
 const CollectionCards = () => {
   const [punkListsdata, setPunkListsData] = useState([]);
+  const [selectedPunk, setSelectedPunk] = useState(0);
+  console.log(selectedPunk);
 
   useEffect(() => {
     const getMyNfts = async () => {
@@ -20,13 +22,15 @@ const CollectionCards = () => {
   return (
     <CollectionCardsContainer>
       {punkListsdata.map((punkListData) => (
-        <CollectionCard
-          key={punkListData.id}
-          id={punkListData.id}
-          name={punkListData.name}
-          traits={punkListData.traits.value}
-          image={punkListData.image_url}
-        />
+        <div onClick={() => setSelectedPunk(punkListData.token_id)}>
+          <CollectionCard
+            key={punkListData.id}
+            id={punkListData.id}
+            name={punkListData.name}
+            traits={punkListData.traits.value}
+            image={punkListData.image_url}
+          />
+        </div>
       ))}
     </CollectionCardsContainer>
   );

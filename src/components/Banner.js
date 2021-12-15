@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import InstagramLogo from "../assets/owner/instagram.png";
 import TwitterLogo from "../assets/owner/twitter.png";
 import moreIcon from "../assets/owner/more.png";
 
-const Banner = () => {
+const Banner = ({ selectedPunk, punkListData }) => {
+  // const [activePunk, setActivePunk] = useState(punkListData[0])
+
+  // useEffect(() => {
+  //   setActivePunk(punkListData[selectedPunk])
+  // }, [punkListData, selectedPunk])
+
   return (
     <Container>
       <MainContent>
@@ -105,7 +111,8 @@ const Owner = styled.div`
 
 const OwnerDetail = styled.div`
   display: flex;
-  justify-content: space-between;
+  align-items: flex-end;
+  justify-content: flex-end;
 `;
 
 const OwnerImage = styled.div`
@@ -124,7 +131,7 @@ const OwnerImage = styled.div`
 const OwnerNameAndHandle = styled.div`
   div {
     color: #a1a5be;
-    font-size: 72px;
+    /* font-size: 72px; */
     align-self: center;
   }
 

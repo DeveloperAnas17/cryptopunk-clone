@@ -4,3 +4,8 @@
   min-height: 100vh;
   max-width: 100vw;
 }
+
+.he {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
